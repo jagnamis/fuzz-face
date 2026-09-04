@@ -9,7 +9,29 @@ pic
 ### SPICE Simulation
 pic
 ### Components needed
-Table
+| Designator | Component         | Notes                          |
+|------------|-------------------|--------------------------------|
+|            | Stripboard        |                                |
+|            | Jumpers and wires |                                |
+|            | DC Barrel Jack    |                                |
+|            | 3PDT              |                                |
+|            | Battery clip      |                                |
+| +9V        | 9V Battery        |                                |
+| IN         | Stereo Jack       |                                |
+| OUT        | Mono Jack         |                                |
+| RV1        | Alpha B1K         |                                |
+| RV2        | Alpha A500K       |                                |
+| C1         | 2.2uF             | Electrolytic                   |
+| C2         | 10uF              | Electrolytic changed from 22uF |
+| C3         | 0.01uF            | Ceramic/Film                   |
+| C4,C5      | 100p              | Optional                       |
+| R1         | 470               | changed from 330               |
+| R2         | 47K               | changed from 33K               |
+| R3         | 47K               | changed from 100K              |
+| R4         | 6.8K              | changed from 8.2K              |
+| Q1,Q2      | BC548C            |                                |
+| R5         | 20K               | Optional                       |
+| D1         | LED               | Optional                       |
 ### Breadboard
 not sure
 ### Off-board wiring
