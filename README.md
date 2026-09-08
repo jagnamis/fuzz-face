@@ -7,7 +7,17 @@ which is linked below. Circuit was soldered on a Stripboard. For future pedals I
 ### Schematic
 pic
 ### SPICE Simulation
+As can be seen, the gain is so high that even at a low value like 10mV pp, 
+the output goes into clipping:
 pic
+As input waveform's voltage increases, the duty cycle changes and so 
+does the output waveform:
+pic
+Pedal's frequency response:
+pic
+At maximum fuzz we get a resonant frequency around 220Hz, so it'd best
+not to turn the fuzz knob all the way when playing, unless for some reason
+we'd REAAALLY want to emphasize our A3-B3 notes.
 ### Components needed
 | Designator | Component         | Notes                          |
 |------------|-------------------|--------------------------------|
@@ -35,9 +45,11 @@ pic
 ### Breadboard
 not sure
 ### Off-board wiring
-schematic & pedal
+pic DIY
+pic pedal
 ### Comparison
 Simulation vs Oscilloscope
+possible causes of the differences, like component tolerances etc.
 ### Demo
 YT
 
