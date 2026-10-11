@@ -13,18 +13,17 @@ Simplified schematic of the circuit, without off-board wiring:
 
 <img width="552" height="500" alt="Fuzz Face Schematic" src="https://github.com/user-attachments/assets/7786a8fd-e977-4e55-a13a-dab57540a2cf" />
 
-Note the swapped 1 and 3 on the potentiometers. That's done so on the finished pedal the knob values will increase when turning clockwise, instead of decrease.
+Note the swapped 1 and 3 on the potentiometers. That's done so on the finished pedal the knob values will increase when turning clockwise.
 
 ### SPICE Simulation
-As can be seen, the gain is so high that even at a low input signal value like 10mV pp, 
+The NPN transistor's gain is so high that even at a low input signal value like 40mV pp, 
 the output signal goes into clipping:
 
-<img width="584" height="250" alt="SPICE Simulation at 10mV pp" src="https://github.com/user-attachments/assets/563702b1-4397-4387-a2b4-889b66b1c9c1" />
+<img width="584" height="250" alt="SPICE Simulation at 40mV pp" src="https://github.com/user-attachments/assets/563702b1-4397-4387-a2b4-889b66b1c9c1" />
 
+As input signal's voltage increases (200mV pp), the duty cycle changes:
 
-As input signal's voltage increases (100mV pp), the duty cycle changes:
-
-<img width="584" height="250" alt="SPICE Simulation at 100mV pp" src="https://github.com/user-attachments/assets/abf628bd-c078-4488-ada8-2bd5b300b530" />
+<img width="584" height="250" alt="SPICE Simulation at 200mV pp" src="https://github.com/user-attachments/assets/abf628bd-c078-4488-ada8-2bd5b300b530" />
 
 Pedal's frequency response:
 
@@ -41,7 +40,7 @@ not to turn the fuzz knob all the way when playing.
 |            | Jumpers and wires |                                |
 |            | DC Barrel Jack    |                                |
 |            | 3PDT              |                                |
-|            | Battery clip      |                                |
+|            | Battery clip      | Can swap for 9V power supply   |
 | +9V        | 9V Battery        |                                |
 | IN         | Stereo Jack       |                                |
 | OUT        | Mono Jack         |                                |
@@ -59,14 +58,14 @@ not to turn the fuzz knob all the way when playing.
 | R5         | 20K               | Optional                       |
 | D1         | LED               | Optional                       |
 
-Most of the component swaps (C1, C2 electrolytic instead of film; R2, R3, R4) are simply because that's what I had, and the differences weren't very noticeable. 
+Most of the component swaps (C1, C2 electrolytic instead of film; R2, R3, R4 values) are simply because that's what I had, and the differences are minor. 
 
-The changed C2 value and additional C4 & C5 capacitors aim to eliminate high-frequency oscillations. 
+The changed C2 value and additional C4 & C5 capacitors aim to eliminate high-frequency oscillations and noise. 
 Swapping R1 from 470 to 330 was done to boost the output volume.
 
 ### Breadboard
 
-Before soldering on a protoboard, firstly I've done the circuit on a breadboard.
+Before soldering on a Stripboard, I've tested the circuit on a breadboard.
 
 I won't bother describing it here, as some great instructions already exist. A very good step-by-step write-up can be found here: [Breadboarding A Silicon Fuzz Face](https://diy.smallbearelec.com/HowTos/BreadboardSiFF/BreadboardSiFF.htm).
 
@@ -78,6 +77,9 @@ Off-board wiring schematic was done in DIY Layout Creator:
 
 The wiring with a 3PDT allows for True Bypass, meaning the pedal won't influence the signal when the pedal is off.
 
+3-pin DC jack means that when using both a battery and a Power Supply, the battery is not supplying power.
+Stereo Input Jack wiring also allows to not drain the battery when the pedal is not in use.
+
 The finished pedal's insides:
 
 <img width="345" height="615" alt="Inside of pedal" src="https://github.com/user-attachments/assets/d88f0083-484e-40cb-82bd-5a4317c0a045" />
@@ -88,9 +90,9 @@ When purchasing the enclosure, for simplicity, I ordered a pre-drilled enclosure
 
 The pre-drilled layout however doesn't allow for a 9V battery to fit inside the pedal.
 
-In order to avoid something like this it'd be best to drill the enclosure yourself - or ditch the 9V battery altogether, using only a 9V adapter. 
+In order to avoid something like this it'd be best to drill the enclosure yourself - or ditch the 9V battery altogether, using only a 9V power supply. 
 
-Important to note that as most pedals, this one uses a center negative barrel jack, and there's no reverse voltage protection, so be mindful of that.
+Important to note that as most pedals do, this one uses a center negative barrel jack, and there's no reverse voltage protection, so be mindful of that.
 
 ### Comparison
 
@@ -100,9 +102,6 @@ SPICE Simulation vs Oscilloscope:
 
 I think it's fair to say the signals are quite similar. The differences will mostly boil down to component tolerances (For example, the 500K pot used here
 actually measures ~440K Ohms).
-
-<!-- <img width="934" height="398" alt="oscilloscope_100mV_spice" src="https://github.com/user-attachments/assets/86cf3e87-e138-4306-b351-362d094b9348" /> -->
-<!-- <img width="800" height="480" alt="oscilloscope_100mV" src="https://github.com/user-attachments/assets/b58d2b29-ffc2-409b-9fd0-1be0adca6092" /> -->
 
 ### Pedal Demo
 
